@@ -49,6 +49,8 @@ async function execute(chains, wallet, options) {
 
     const feeRemote = await calculateBridgeFee(source, destination);
     const feeSource = await calculateBridgeFee(source, source);
+    console.log(feeRemote);
+    console.log(feeSource);
 
     const tx = await source.contract
         .sendContractCall(destination.name, destination.receiver.address, payload, feeRemote, {
