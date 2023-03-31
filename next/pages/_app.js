@@ -1,3 +1,5 @@
+import Navbar from '@/components/Navigation/Navbar'
+
 import { ThirdwebProvider } from '@thirdweb-dev/react'
 import { Goerli, Mumbai } from '@thirdweb-dev/chains'
 import { ChakraProvider } from '@chakra-ui/react'
@@ -8,14 +10,15 @@ export default function App({ Component, pageProps }) {
     <ThirdwebProvider
       dAppMeta={{
         name: 'Warp Drive',
-        description: 'My app description',
-        logoUrl: 'https://example.com/logo.png',
-        url: 'https://example.com',
+        description: 'Your journey to the outer space of Web3!',
+        logoUrl: 'https://wdrive.io/logo.png',
+        url: 'https://wdrive.io',
         isDarkMode: true,
       }}
       supportedChains={[Goerli, Mumbai]}
     >
       <ChakraProvider theme={theme}>
+        <Navbar />
         <Component {...pageProps} />
       </ChakraProvider>
     </ThirdwebProvider>

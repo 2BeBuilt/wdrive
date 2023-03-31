@@ -1,0 +1,22 @@
+version: '3.5'
+
+services:
+  nginx:
+    container_name: nginx
+    build: nginx
+    ports:
+      - '81:81'
+    networks:
+      - app
+  next:
+    container_name: next
+    build:
+      context: next
+    ports:
+      - "${NEXT_PORT}:${NEXT_PORT}"
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge

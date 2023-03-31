@@ -1,8 +1,11 @@
 import { Heading, Container, Stack, Text } from '@chakra-ui/react'
 
+import PageHead from '@/components/Common/PageHead'
+
 export default function Home() {
   return (
     <>
+      <PageHead title="Warp Drive" />
       <main>
         <Stack spacing={4} as={Container} maxW="4xl" textAlign="center">
           <Heading>Warp Drive</Heading>
