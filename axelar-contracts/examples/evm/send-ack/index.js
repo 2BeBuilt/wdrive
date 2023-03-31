@@ -31,7 +31,10 @@ async function deploy(chain, wallet) {
 async function execute(chains, wallet, options) {
     const { source, destination, calculateBridgeFee, args } = options;
     const message = args[2] || `Received message that written at ${new Date().toLocaleTimeString()}.`;
-    const payload = defaultAbiCoder.encode(['string'], [message]);
+    const payload = defaultAbiCoder.encode(
+        ['address', 'uint256', 'string', 'string', 'string', 'address', 'string'],
+        ['0xf65829b83188972c7d07db6478903c6e9fe672b4', '0', 'string', 'bayc', 'eth', '0xf65829b83188972c7d07db6478903c6e9fe672b4', 'URI'],
+    );
 
     async function print() {
         const length = await destination.receiver.messagesLength();
@@ -57,6 +60,10 @@ async function execute(chains, wallet, options) {
             value: BigNumber.from(feeRemote).add(feeSource),
         })
         .then((tx) => tx.wait());
+    console.log(destination.name);
+    console.log(destination.receiver.address);
+    console.log(payload);
+    console.log(feeRemote);
     const event = tx.events.find((event) => event.event === 'ContractCallSent');
     const nonce = event.args.nonce;
 
