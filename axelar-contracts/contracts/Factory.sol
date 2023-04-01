@@ -15,15 +15,18 @@ contract Factory is AxelarExecutable, ERC721Holder {
     using AddressToString for address;
 
     // struct Log {
-    //     mapping(string => address) first
-    //     address
+    //     mapping(string => mapping(string => address)) Avalanche;
+    //     mapping(string => mapping(string => address)) Fantom;
+    //     mapping(string => mapping(string => address)) Polygon;
     // }
 
-    mapping(address => address) originalToBridge;
-    mapping(address => address) bridgeToOriginal;
+    // mapping(address => address) originalToBridge;
+    // mapping(address => address) bridgeToOriginal;
 
     CrossChainNFT public deployment;
     CrossChainNFT[] public deployments;
+    // mapping(string => mapping(string => address)) original;
+    mapping(address => bytes) public original; //abi.encode(originaChain, tokenId, nftAddress);
 
     string public chainName;
 
@@ -35,6 +38,8 @@ contract Factory is AxelarExecutable, ERC721Holder {
     //send this contract NFT first, then call bridgeOut with specifics
     function bridgeOut(address nftContract, uint256 tokenId, string memory destinationChain) external payable {
         require(CrossChainNFT(nftContract).ownerOf(tokenId) == address(this), 'TokenId is not in the bridge balance');
+
+        // Avalanche[chainName][destinationChain] = nftContract;
 
         string memory tokenURI = CrossChainNFT(nftContract).tokenURI(tokenId);
         string memory name = CrossChainNFT(nftContract).name();
@@ -63,6 +68,12 @@ contract Factory is AxelarExecutable, ERC721Holder {
             string memory symbol,
             string memory name
         ) = abi.decode(payload, (string, address, uint256, address, string, string, string));
+
+        // //We need to save all the relevant information.
+        // bytes memory originalData = abi.encode(fromChain, tokenId, nftAddress);
+        // //Avoids tokenId collisions.
+        // uint256 newTokenId = uint256(keccak256(originalData));
+        // original[newTokenId] = originalData;
 
         //If this contract has the token (original or wrapped, then release it)
         if (CrossChainNFT(nftContract).ownerOf(tokenId) == address(this)) {
