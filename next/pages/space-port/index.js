@@ -20,6 +20,7 @@ export default function SpacePort() {
             let tokens = []
             response.data.result.forEach((res) => {
               if (res.token_uri) {
+                console.log('Here')
                 const uri =
                   res.token_uri &&
                   res.token_uri.replace('ipfs.moralis.io:2053', 'ipfs.io')
@@ -33,6 +34,7 @@ export default function SpacePort() {
                       'https://ipfs.io/ipfs/'
                     ),
                   })
+                  setTokens((prev) => prev.concat(tokens))
                 })
               } else {
                 tokens.push({
@@ -40,8 +42,8 @@ export default function SpacePort() {
                   chain: chain.network,
                   image: null,
                 })
+                setTokens((prev) => prev.concat(tokens))
               }
-              setTokens((prev) => prev.concat(tokens))
             })
           })
       })
