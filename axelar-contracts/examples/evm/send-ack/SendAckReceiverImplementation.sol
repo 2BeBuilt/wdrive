@@ -13,6 +13,7 @@ contract SendAckReceiverImplementation is SendAckReceiver {
     CrossChainNFT public deployment;
 
     mapping(address => address) pair;
+    mapping(address => mapping(address => string)) parent;
 
     string[] public messages;
 
@@ -38,6 +39,7 @@ contract SendAckReceiverImplementation is SendAckReceiver {
             deployment.mint(recipient, tokenId); //minted the right token ID, NAME, SYMBOL, RECIPIENT
             deployment.setTokenURI(tokenId, tokenURI); //set the right tokenURI
             pair[parentNFT] == address(deployment); //paired up with the parentNFT
+            parent[parentNFT][address(deployment)] = parentChain;
         }
 
         //pair[parentNFT] =
