@@ -8,14 +8,14 @@ import {
   darkTheme,
 } from '@rainbow-me/rainbowkit'
 import { configureChains, createClient, WagmiConfig } from 'wagmi'
-import { avalancheFuji, fantomTestnet } from 'wagmi/chains'
+import { goerli, polygonMumbai, avalancheFuji, bscTestnet } from 'wagmi/chains'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { publicProvider } from 'wagmi/providers/public'
 import { ChakraProvider } from '@chakra-ui/react'
 import { theme } from '@/utils/theme'
 
 const { chains, provider } = configureChains(
-  [fantomTestnet, avalancheFuji],
+  [goerli, polygonMumbai, avalancheFuji, bscTestnet],
   [alchemyProvider({ apiKey: process.env.ALCHEMY_ID }), publicProvider()]
 )
 

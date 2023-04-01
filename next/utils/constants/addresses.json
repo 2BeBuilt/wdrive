@@ -1,0 +1,10 @@
+[
+    {
+        "chainId": "0x5",
+        "address": "1"
+    },
+    {
+        "chainId": "2",
+        "address": "3"
+    }
+]

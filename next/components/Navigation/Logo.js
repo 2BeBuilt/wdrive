@@ -4,7 +4,12 @@ import Link from 'next/link'
 export default function Logo() {
   return (
     <div>
-      <Stack boxSize="150px" alignItems="center" justify="center">
+      <Stack
+        boxSize="150px"
+        alignItems="center"
+        justify="center"
+        marginLeft="14"
+      >
         <Image src="/logo.png" borderRadius="lg" alt="logo" />
         <Link href="/">
           <Heading

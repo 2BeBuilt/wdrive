@@ -19,8 +19,6 @@ const message = 'test123'
 
 export default function Warp() {
   const { data: signer } = useSigner()
-  const [totalFee, setTotal] = useState(0)
-  const [remoteFee, setRemote] = useState(0)
 
   const call = async () => {
     const contract = new ethers.Contract(contractAddress, abi, signer)
@@ -44,17 +42,10 @@ export default function Warp() {
         tx.wait()
       })
   }
-  const handleClick = async () => {
-    const feeRemote = await calculateBridgeFee(source, destination)
-    const feeSource = await calculateBridgeFee(source, source)
-    const total = ethers.BigNumber.from(feeRemote).add(feeSource)
-    setTotal(total)
-  }
 
   return (
     <div>
-      <Button onClick={call}>Calculate Fee</Button>
-      {totalFee && remoteFee && <Button onClick={write}>Send Tx</Button>}
+      <Button onClick={call}>Send NFT</Button>
     </div>
   )
 }
