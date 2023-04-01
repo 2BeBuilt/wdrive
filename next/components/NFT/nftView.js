@@ -9,12 +9,13 @@ import {
   Flex,
   SimpleGrid,
   Tooltip,
+  Heading,
 } from '@chakra-ui/react'
 
 import chains from '@/utils/constants/chains.json'
 import FlexCenter from '../Common/FlexCenter'
 
-export default function NftView({ tokenId, chain, image }) {
+export default function NftView({ tokenId, chain, image, name }) {
   const logo = chains.filter((c) => c.name === chain)[0].logo
   let boxBg = 'black'
   let networkName = 'None'
@@ -89,13 +90,13 @@ export default function NftView({ tokenId, chain, image }) {
           )}
         </Box>
         <Stack pt={10} align={'center'}>
-          <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-            {`NFT #${tokenId}`}
+          <Text color={'gray.500'} fontSize={'md'} textTransform={'uppercase'}>
+            {`SHIP #${tokenId}`}
           </Text>
           <SimpleGrid columns={3} spacing={2}>
             {/* functions */}
           </SimpleGrid>
-          <Text>Nft name</Text>
+          <Heading fontSize="xl">{name}</Heading>
         </Stack>
       </Box>
     </Center>

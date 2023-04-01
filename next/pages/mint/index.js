@@ -31,8 +31,8 @@ export default function Mint() {
   } = usePrepareContractWrite({
     address: contract,
     abi: abi,
-    functionName: 'safeMint',
-    args: [address],
+    functionName: 'safeWarp',
+    args: [],
   })
   const { data, write, error } = useContractWrite(config)
   const { isLoading, isSuccess, isError } = useWaitForTransaction({
@@ -53,7 +53,7 @@ export default function Mint() {
   if (data) {
     toast({
       title: 'Success',
-      description: 'Ship minted',
+      description: data?.hash,
       position: 'top',
       status: 'success',
       duration: 9000,

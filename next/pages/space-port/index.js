@@ -18,13 +18,30 @@ export default function SpacePort() {
           .then((response) => {
             let tokens = []
             response.data.result.forEach((res) => {
-              const uri =
-                res.token_uri &&
-                res.token_uri.replace('ipfs.moralis.io:2053', 'ipfs.io')
-
-              tokens.push({ ...res, chain: chain.network, image: uri })
+              if (res.token_uri) {
+                const uri =
+                  res.token_uri &&
+                  res.token_uri.replace('ipfs.moralis.io:2053', 'ipfs.io')
+                axios.get(uri).then((response) => {
+                  tokens.push({
+                    ...res,
+                    chain: chain.network,
+                    name: response.data.name,
+                    image: response.data.image.replace(
+                      'ipfs://',
+                      'https://ipfs.io/ipfs/'
+                    ),
+                  })
+                })
+              } else {
+                tokens.push({
+                  ...res,
+                  chain: chain.network,
+                  image: null,
+                })
+              }
+              setTokens((prev) => prev.concat(tokens))
             })
-            setTokens((prev) => prev.concat(tokens))
           })
       })
     }
@@ -46,6 +63,7 @@ export default function SpacePort() {
             chain={token.chain}
             tokenId={token.token_id}
             image={token.image}
+            name={token.name}
           />
         )
       })}
