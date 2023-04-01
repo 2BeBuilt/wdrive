@@ -10,6 +10,11 @@
                 "internalType": "address",
                 "name": "gasReceiver_",
                 "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "chainName_",
+                "type": "string"
             }
         ],
         "stateMutability": "nonpayable",
@@ -132,6 +137,19 @@
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "chainName",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
             }
         ],
         "stateMutability": "view",

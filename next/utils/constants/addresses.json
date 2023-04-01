@@ -2,21 +2,21 @@
     {
         "name": "goerli",
         "chainId": "0x5",
-        "address": "0xdEb1412512A8EE7754B3B0662A4f3A12ec7D65E6"
+        "address": "0xD715f378C1772907Ca90329Dd032ca7dAc9fC5AB"
     },
     {
         "name": "polygon",
         "chainId": "0x13881",
-        "address": "0x6d14a3982b006645cC58BD26A9a588182dD91B2C"
+        "address": "0x919212DE942D99E3e601FDC095c88123a2Bee100"
     },
     {
         "name": "bsc",
         "chainId": "0x61",
-        "address": "0x1daE6bb83Ea5DB16d8b14d14e47290C490eECd4B"
+        "address": "0x302b7f6972fdb20614298773767e48d28EaBE8C1"
     },
     {
         "name": "avalanche",
         "chainId": "0xa869",
-        "address": "0x018BB2f271eF94a09e54Bdb5b5C34Dcb0a8aF972"
+        "address": "0x2E31D4eBE881971563Ac6814555Ce8c2d10f3679"
     }
 ]
