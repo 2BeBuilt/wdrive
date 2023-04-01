@@ -1,0 +1,18 @@
+[
+    {
+        "name": "goerli",
+        "id": "0x5"
+    },
+    {
+        "name": "mumbai",
+        "id": "0x13881"
+    },
+    {
+        "name": "bsc testnet",
+        "id": "0x61"
+    },
+    {
+        "name": "avax fuji",
+        "id": "0xa869"
+    }
+]
