@@ -4,27 +4,27 @@
         "id": "0x5",
         "logo": "/chains/eth.svg",
         "ship": "/ships/eth_small.png",
-        "address": "0xD715f378C1772907Ca90329Dd032ca7dAc9fC5AB"
+        "address": "0x1a5e1BEc4E6DA1b46Ae78b254292E94CC0C94A2F"
     },
     {
         "name": "maticmum",
         "id": "0x13881",
         "logo": "/chains/matic.svg",
         "ship": "/ships/matic_small.png",
-        "address": "0x919212DE942D99E3e601FDC095c88123a2Bee100"
+        "address": "0xcB9476193c9E2C7aEc58CcDF63B37F1E56Ab2f63"
     },
     {
         "name": "bsc-testnet",
         "id": "0x61",
         "logo": "/chains/bnb.svg",
         "ship": "/ships/bnb_small.png",
-        "address": "0x302b7f6972fdb20614298773767e48d28EaBE8C1"
+        "address": "0xb8CdA5c1a11A51f46193B6D69B5c963b1d258354"
     },
     {
         "name": "avalanche-fuji",
         "id": "0xa869",
         "logo": "/chains/avax.svg",
         "ship": "/ships/avax_small.png",
-        "address": "0x2E31D4eBE881971563Ac6814555Ce8c2d10f3679"
+        "address": "0xA063cE619482A8d7f65EdDE5CcE70AD5BBEe5F70"
     }
 ]

@@ -1,6 +1,7 @@
 import '@rainbow-me/rainbowkit/styles.css'
 
 import Navbar from '@/components/Navigation/Navbar'
+import Footer from '@/components/Navigation/Footer'
 
 import {
   getDefaultWallets,
@@ -13,6 +14,7 @@ import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { publicProvider } from 'wagmi/providers/public'
 import { ChakraProvider } from '@chakra-ui/react'
 import { theme } from '@/utils/theme'
+import { Container } from '@chakra-ui/react'
 
 const { chains, provider } = configureChains(
   [goerli, polygonMumbai, avalancheFuji, bscTestnet],
@@ -37,6 +39,7 @@ export default function App({ Component, pageProps }) {
         <ChakraProvider theme={theme}>
           <Navbar />
           <Component {...pageProps} />
+          <Footer />
         </ChakraProvider>
       </RainbowKitProvider>
     </WagmiConfig>
