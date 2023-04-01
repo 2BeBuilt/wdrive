@@ -34,8 +34,7 @@ export default function Warp() {
       remoteFee,
     ],
     overrides: {
-      gasLimit: 1000000,
-      value: 1000000,
+      value: Math.ceil(ethers.utils.formatUnits(totalFee, 'gwei')),
     },
   })
   const { data, write, error } = useContractWrite(config)
