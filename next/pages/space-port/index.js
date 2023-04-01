@@ -7,7 +7,7 @@ import { useAccount, useNetwork } from 'wagmi'
 
 export default function SpacePort() {
   const [tokens, setTokens] = useState([])
-  const { address, isConnected } = useAccount()
+  const { address, isConnected, isDisconnected } = useAccount()
   const { chains } = useNetwork()
 
   useEffect(() => {
@@ -29,8 +29,13 @@ export default function SpacePort() {
       })
     }
 
+    const clearData = () => {
+      setTokens([])
+    }
+
     isConnected && fetchData()
-  }, [isConnected])
+    isDisconnected && clearData()
+  }, [isConnected, isDisconnected])
 
   return (
     <SimpleGrid columns={4} spacing={6} marginLeft={20} marginRight={20}>
