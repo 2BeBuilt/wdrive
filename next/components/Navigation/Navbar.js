@@ -15,7 +15,7 @@ export default function Navbar() {
       justifyContent="center"
     >
       <Logo />
-      <Navitem href="/warp">Use Warp</Navitem>
+      <Navitem href="/mint">Build Ship</Navitem>
       <Navitem href="/space-port">Space Port</Navitem>
       <FlexCenter>
         <ConnectButton
