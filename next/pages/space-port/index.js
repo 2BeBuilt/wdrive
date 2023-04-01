@@ -8,24 +8,33 @@ import { useAccount, useNetwork } from 'wagmi'
 export default function SpacePort() {
   const [tokens, setTokens] = useState([])
   const { address, isConnected } = useAccount()
-  const { chain } = useNetwork()
+  const { chains } = useNetwork()
 
   useEffect(() => {
     const fetchData = async () => {
-      axios
-        .get(`/api/moralis/getNfts?chain=${chain.network}&address=${address}`)
-        .then((response) => {
-          setTokens(response.data.result)
-        })
+      chains.forEach((chain) => {
+        axios
+          .get(`/api/moralis/getNfts?chain=${chain.network}&address=${address}`)
+          .then((response) => {
+            let tokens = []
+            response.data.result.forEach((res) => {
+              tokens.push({ ...res, chain: chain.network })
+            })
+            setTokens((prev) => prev.concat(tokens))
+          })
+      })
     }
-    isConnected && fetchData()
-  }, [chain])
 
+    isConnected && fetchData()
+  }, [isConnected])
+
+  console.log(tokens)
   return (
     <SimpleGrid columns={4} spacing={6} marginLeft={20} marginRight={20}>
       {tokens.map((token) => (
         <NftView
           key={token.token_id}
+          chain={token.chain}
           tokenId={token.token_id}
           image={'/logo.png'}
         />
