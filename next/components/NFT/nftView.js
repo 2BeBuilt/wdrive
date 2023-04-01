@@ -10,7 +10,18 @@ import {
   SimpleGrid,
 } from '@chakra-ui/react'
 
-export default function NftView({ tokenId, image }) {
+export default function NftView({ tokenId, chain, image }) {
+  let boxBg = 'black'
+  if (chain === 'goerli') {
+    boxBg = 'gray.800'
+  } else if (chain === 'maticmum') {
+    boxBg = 'purple.800'
+  } else if (chain === 'bsc-testnet') {
+    boxBg = 'yellow.800'
+  } else if (chain === 'avalanche-fuji') {
+    boxBg = 'red.800'
+  }
+
   return (
     <Center py={12}>
       <Box
@@ -18,7 +29,7 @@ export default function NftView({ tokenId, image }) {
         p={6}
         maxW={'330px'}
         w={'full'}
-        bg={useColorModeValue('white', 'purple.800')}
+        bg={boxBg}
         boxShadow={'2xl'}
         rounded={'lg'}
         pos={'relative'}
