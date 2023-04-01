@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import abi from '@/utils/constants/abi.json'
 import chains from '@/utils/constants/chains.json'
 import FlexCenter from '@/components/Common/FlexCenter'
+import PageHead from '@/components/Common/PageHead'
 
 export default function Mint() {
   const [shipLogo, setShipLogo] = useState(null)
@@ -62,19 +63,22 @@ export default function Mint() {
   }
 
   return (
-    <FlexCenter>
-      {isConnected && (
-        <Tooltip label="Build Ship" placement="bottom">
-          <Image
-            cursor="pointer"
-            onClick={write}
-            rounded="lg"
-            height={300}
-            width={300}
-            src={shipLogo}
-          />
-        </Tooltip>
-      )}
-    </FlexCenter>
+    <>
+      <PageHead title="Build Ship" />
+      <FlexCenter>
+        {isConnected && (
+          <Tooltip label="Build Ship" placement="bottom">
+            <Image
+              cursor="pointer"
+              onClick={write}
+              rounded="lg"
+              height={300}
+              width={300}
+              src={shipLogo}
+            />
+          </Tooltip>
+        )}
+      </FlexCenter>
+    </>
   )
 }
