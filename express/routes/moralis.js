@@ -15,7 +15,6 @@ startMoralis()
 router.get('/getNfts', async (req, res, next) => {
   const chain = req.query.chain
   const chainId = chains.filter((c) => c.name === chain)[0].id
-
   const address = req.query.address
 
   const tokenAddresses = [
@@ -23,6 +22,7 @@ router.get('/getNfts', async (req, res, next) => {
   ]
 
   console.log(chain, tokenAddresses)
+
   const response = await Moralis.EvmApi.nft.getWalletNFTs({
     chain: chainId,
     format: 'decimal',
@@ -31,6 +31,7 @@ router.get('/getNfts', async (req, res, next) => {
     address: address,
   })
 
+  console.log(response.raw)
   res.send(response.raw)
 })
 
