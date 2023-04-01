@@ -20,7 +20,6 @@ export default function SpacePort() {
             let tokens = []
             response.data.result.forEach((res) => {
               if (res.token_uri) {
-                console.log('Here')
                 const uri =
                   res.token_uri &&
                   res.token_uri.replace('ipfs.moralis.io:2053', 'ipfs.io')
@@ -36,13 +35,6 @@ export default function SpacePort() {
                   })
                   setTokens((prev) => prev.concat(tokens))
                 })
-              } else {
-                tokens.push({
-                  ...res,
-                  chain: chain.network,
-                  image: null,
-                })
-                setTokens((prev) => prev.concat(tokens))
               }
             })
           })
@@ -60,7 +52,13 @@ export default function SpacePort() {
   return (
     <>
       <PageHead title="Space Port" />
-      <SimpleGrid columns={4} spacing={6} marginLeft={20} marginRight={20}>
+      <SimpleGrid
+        columns={4}
+        spacing={6}
+        marginLeft={20}
+        marginRight={20}
+        paddingBottom={20}
+      >
         {tokens.map((token) => {
           return (
             <NftView
