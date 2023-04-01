@@ -3,7 +3,6 @@ import { ethers } from 'ethers'
 import { calculateBridgeFee } from '@/utils/bridgeFee'
 import { Button } from '@chakra-ui/react'
 import { useToast } from '@chakra-ui/react'
-import { Link } from 'next/link'
 import abi from '@/utils/constants/abi.json'
 import chains from '@/utils/constants/testnet.json'
 
