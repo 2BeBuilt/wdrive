@@ -1,14 +1,5 @@
 {
-    "avalanche": {
-        "sendAckSender": "0xF8C7C019DAf4109C6b6802d190fED9ebe0C0f093",
-        "sendAckReceiverImplementation": "0x492C11055C7E9233A2Adc2e82Bf384fD79d2a675"
-    },
-    "fantom": {
-        "sendAckSender": "0xF8C7C019DAf4109C6b6802d190fED9ebe0C0f093",
-        "sendAckReceiverImplementation": "0x492C11055C7E9233A2Adc2e82Bf384fD79d2a675"
-    },
-    "polygon": {
-        "sendAckSender": "0xF8C7C019DAf4109C6b6802d190fED9ebe0C0f093",
-        "sendAckReceiverImplementation": "0x492C11055C7E9233A2Adc2e82Bf384fD79d2a675"
-    }
+    "avalanche": ["0x497221063544fb04bf855742448f2207e79d52c4"],
+    "fantom": ["0xd51a2d698137e2f70c54fd626678fcaa66b2e69d"],
+    "polygon": ["0xda77169fe441173b190590e568272d7deeee2f82"]
 }
