@@ -65,8 +65,8 @@ export default function Warp() {
   }
 
   return (
-    <div>
+    <>
       <Button onClick={call}>Send NFT</Button>
-    </div>
+    </>
   )
 }
