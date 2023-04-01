@@ -8,18 +8,28 @@ import {
   Image,
   Flex,
   SimpleGrid,
+  Tooltip,
 } from '@chakra-ui/react'
 
+import chains from '@/utils/constants/chains.json'
+import FlexCenter from '../Common/FlexCenter'
+
 export default function NftView({ tokenId, chain, image }) {
+  const logo = chains.filter((c) => c.name === chain)[0].logo
   let boxBg = 'black'
+  let networkName = 'None'
   if (chain === 'goerli') {
     boxBg = 'gray.800'
+    networkName = 'Goerli'
   } else if (chain === 'maticmum') {
     boxBg = 'purple.800'
+    networkName = 'Polygon Mumbai'
   } else if (chain === 'bsc-testnet') {
     boxBg = 'yellow.800'
+    networkName = 'BSC Testnet'
   } else if (chain === 'avalanche-fuji') {
     boxBg = 'red.800'
+    networkName = 'Avalanche Fuji'
   }
 
   return (
@@ -35,6 +45,11 @@ export default function NftView({ tokenId, chain, image }) {
         pos={'relative'}
         zIndex={1}
       >
+        <FlexCenter>
+          <Tooltip label={networkName} placement="top">
+            <Image height={8} width={8} src={logo} />
+          </Tooltip>
+        </FlexCenter>
         <Box
           rounded={'lg'}
           mt={-12}

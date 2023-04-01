@@ -18,7 +18,11 @@ export default function SpacePort() {
           .then((response) => {
             let tokens = []
             response.data.result.forEach((res) => {
-              tokens.push({ ...res, chain: chain.network })
+              const uri =
+                res.token_uri &&
+                res.token_uri.replace('ipfs.moralis.io:2053', 'ipfs.io')
+
+              tokens.push({ ...res, chain: chain.network, image: uri })
             })
             setTokens((prev) => prev.concat(tokens))
           })
@@ -28,17 +32,18 @@ export default function SpacePort() {
     isConnected && fetchData()
   }, [isConnected])
 
-  console.log(tokens)
   return (
     <SimpleGrid columns={4} spacing={6} marginLeft={20} marginRight={20}>
-      {tokens.map((token) => (
-        <NftView
-          key={token.token_id}
-          chain={token.chain}
-          tokenId={token.token_id}
-          image={'/logo.png'}
-        />
-      ))}
+      {tokens.map((token) => {
+        return (
+          <NftView
+            key={token.token_id}
+            chain={token.chain}
+            tokenId={token.token_id}
+            image={token.image}
+          />
+        )
+      })}
     </SimpleGrid>
   )
 }
