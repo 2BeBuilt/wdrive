@@ -9,6 +9,7 @@ const theme = extendTheme({
   },
   colors: {
     offWhite: '#FFFFE0',
+    silver: '#C0C0C0',
   },
   styles: {
     global: {

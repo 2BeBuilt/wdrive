@@ -1,0 +1,22 @@
+[
+    {
+        "name": "goerli",
+        "id": "0x5",
+        "logo": "/chains/eth.svg"
+    },
+    {
+        "name": "maticmum",
+        "id": "0x13881",
+        "logo": "/chains/matic.svg"
+    },
+    {
+        "name": "bsc-testnet",
+        "id": "0x61",
+        "logo": "/chains/bnb.svg"
+    },
+    {
+        "name": "avalanche-fuji",
+        "id": "0xa869",
+        "logo": "/chains/avax.svg"
+    }
+]
