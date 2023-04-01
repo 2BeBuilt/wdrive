@@ -19,6 +19,9 @@ contract Factory is AxelarExecutable, ERC721Holder {
     //     address
     // }
 
+    mapping(address => address) originalToBridge;
+    mapping(address => address) bridgeToOriginal;
+
     CrossChainNFT public deployment;
     CrossChainNFT[] public deployments;
 
@@ -39,19 +42,7 @@ contract Factory is AxelarExecutable, ERC721Holder {
 
         //Create the payload.
         bytes memory payload = abi.encode(chainName, msg.sender, tokenId, nftContract, tokenURI, symbol, name);
-        string memory stringAddress = address(this).toString();
-        //Pay for gas. We could also send the contract call here but then the sourceAddress will be that of the gas receiver which is a problem later.
-        gasService.payNativeGasForContractCall{ value: msg.value }(address(this), destinationChain, stringAddress, payload, msg.sender);
-        //Call remote contract.
-        gateway.callContract(destinationChain, stringAddress, payload);
-
-        string memory tokenURI = CrossChainNFT(nftContract).tokenURI(tokenId);
-        string memory name = CrossChainNFT(nftContract).name();
-        string memory symbol = CrossChainNFT(nftContract).symbol();
-
-        //Create the payload.
-        bytes memory payload = abi.encode(chainName, msg.sender, tokenId, nftContract, tokenURI, symbol, name);
-        string memory stringAddress = address(this).toString();
+        string memory stringAddress = address(this).toString(); //recipient of the call on the other chain
         //Pay for gas. We could also send the contract call here but then the sourceAddress will be that of the gas receiver which is a problem later.
         gasService.payNativeGasForContractCall{ value: msg.value }(address(this), destinationChain, stringAddress, payload, msg.sender);
         //Call remote contract.
@@ -73,13 +64,10 @@ contract Factory is AxelarExecutable, ERC721Holder {
             string memory name
         ) = abi.decode(payload, (string, address, uint256, address, string, string, string));
 
-        // //if original contract is not in the mapping (never bridged before)
-        // if (originalToBridged[nftContract] == address(0)) {}
-
         //If this contract has the token (original or wrapped, then release it)
         if (CrossChainNFT(nftContract).ownerOf(tokenId) == address(this)) {
-            CrossChainNFT(nftContract).transferFrom(address(this), recipient, tokenId);
-            //Otherwise we need to mint a new one.
+            CrossChainNFT(nftContract).transferFrom(address(this), recipient, tokenId); ////WE NEED OG CONTRACT HERE
+            //Otherwise we need to deploy.
         } else {
             deployment = new CrossChainNFT(name, symbol);
             deployment.mint(recipient, tokenId, tokenURI); //minted the right token ID, NAME, SYMBOL, RECIPIENT
