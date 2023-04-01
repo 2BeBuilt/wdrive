@@ -4,6 +4,7 @@ import axios from 'axios'
 import { SimpleGrid } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { useAccount, useNetwork } from 'wagmi'
+import PageHead from '@/components/Common/PageHead'
 
 export default function SpacePort() {
   const [tokens, setTokens] = useState([])
@@ -55,18 +56,21 @@ export default function SpacePort() {
   }, [isConnected, isDisconnected])
 
   return (
-    <SimpleGrid columns={4} spacing={6} marginLeft={20} marginRight={20}>
-      {tokens.map((token) => {
-        return (
-          <NftView
-            key={token.token_id}
-            chain={token.chain}
-            tokenId={token.token_id}
-            image={token.image}
-            name={token.name}
-          />
-        )
-      })}
-    </SimpleGrid>
+    <>
+      <PageHead title="Space Port" />
+      <SimpleGrid columns={4} spacing={6} marginLeft={20} marginRight={20}>
+        {tokens.map((token) => {
+          return (
+            <NftView
+              key={token.token_id}
+              chain={token.chain}
+              tokenId={token.token_id}
+              image={token.image}
+              name={token.name}
+            />
+          )
+        })}
+      </SimpleGrid>
+    </>
   )
 }
