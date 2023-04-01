@@ -1,7 +1,12 @@
 import Navbar from '@/components/Navigation/Navbar'
 
 import { ThirdwebProvider } from '@thirdweb-dev/react'
-import { Goerli, Mumbai } from '@thirdweb-dev/chains'
+import {
+  Goerli,
+  Mumbai,
+  FantomTestnet,
+  AvalancheFuji,
+} from '@thirdweb-dev/chains'
 import { ChakraProvider } from '@chakra-ui/react'
 import { theme } from '@/utils/theme'
 
@@ -15,7 +20,7 @@ export default function App({ Component, pageProps }) {
         url: 'https://wdrive.io',
         isDarkMode: true,
       }}
-      supportedChains={[Goerli, Mumbai]}
+      supportedChains={[FantomTestnet, AvalancheFuji]}
     >
       <ChakraProvider theme={theme}>
         <Navbar />

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@axelar-network/axelarjs-sdk": "^0.12.6",
     "@chakra-ui/react": "^2.5.5",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
