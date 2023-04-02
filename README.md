@@ -13,7 +13,7 @@ https://testnets.opensea.io/collection/warpdrive-polygon
 https://testnets.opensea.io/collection/warpdrive-bnb
 
 
-# Successful Warps (interchanging the metadata by attacking other blockchain fleets)
+# Axelar. Successful Warps (interchanging the metadata by attacking other blockchain fleets)
 
 https://testnet.axelarscan.io/gmp/0x1064e1ea397b21d0ac2e1719857a1334bd1e446f6ce03e359df5cf623709761e (connect)
 https://testnet.axelarscan.io/gmp/0x89d5034abf04ca22604d3bda2d3fd3fdea6da16a92a3c2acb33f24a51f63d4f1 (update)
@@ -26,6 +26,11 @@ https://testnet.axelarscan.io/gmp/0x54d854409f7087c5bc411cf0e707817fef146ac5c4cf
 
 https://testnet.axelarscan.io/gmp/0x106baff0d46d1d0a71bb0c811d5be2c8e50e52aff65afed72ecd651f3737e1c4 (connect)
 https://testnet.axelarscan.io/gmp/0xce11ca482256b2dcd605584cb9ae4c1fdfa17bae4b7e56f4d9219135994c23d5 (update)
+
+Source code for the calls can be found in (https://github.com/Canvinus/warp-drive/tree/main/axelar-contracts/examples/evm/warp-drive)
+
+- Developing with Axelar loval development repository was a blast and a good development experience overall!
+- Axelar scan makes debugging and understanding the txns much better. 
 
 # Introducing Warp Drive: A Multi-Chain War for Blockchain Supremacy
 
