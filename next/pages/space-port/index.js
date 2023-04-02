@@ -17,9 +17,9 @@ export default function SpacePort() {
         axios
           .get(`/api/moralis/getNfts?chain=${chain.network}&address=${address}`)
           .then((response) => {
-            let tokens = []
             response.data.result.forEach((res) => {
               if (res.token_uri) {
+                let tokens = []
                 const uri =
                   res.token_uri &&
                   res.token_uri.replace('ipfs.moralis.io:2053', 'ipfs.io')
