@@ -47,7 +47,7 @@ export default function WarpModal({ tokenId, isOpen, handleClose }) {
       )
       toast({
         title: 'ConnectNfts signed',
-        description: `https://testnet.axelarscan.io/tx/${txOne.hash}`,
+        description: `https://testnet.axelarscan.io/gmp/${txOne.hash}`,
         position: 'top',
         status: 'success',
         duration: 9000,
@@ -60,7 +60,7 @@ export default function WarpModal({ tokenId, isOpen, handleClose }) {
       })
       toast({
         title: 'Update signed',
-        description: `https://testnet.axelarscan.io/tx/${txTwo.hash}`,
+        description: `https://testnet.axelarscan.io/gmp/${txTwo.hash}`,
         position: 'top',
         status: 'success',
         duration: 9000,
