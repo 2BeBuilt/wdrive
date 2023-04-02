@@ -288,7 +288,7 @@
                 "function update(uint256 token) payable",
                 "function value() view returns (string)"
             ],
-            "address": "0x99A9dDAD61884E16E9Df5D7835F585b85700bF64"
+            "address": "0xA063cE619482A8d7f65EdDE5CcE70AD5BBEe5F70"
         }
     }
 ]
