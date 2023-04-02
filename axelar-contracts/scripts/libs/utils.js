@@ -154,7 +154,11 @@ function getDefaultChains(env) {
         return ['Avalanche', 'Fantom', 'Moonbeam', 'Polygon', 'Ethereum'];
     }
 
-    return ['Avalanche', 'Fantom', 'Polygon'];
+    return ['Binance', 'Avalanche', 'Ethereum', 'Polygon'];
+    //return ['Binance']; //97
+    //return ['Avalanche']; //43114
+    //return ['Ethereum']; //5
+    //return ['Polygon']; //80001
 }
 
 /**
