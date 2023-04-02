@@ -63,10 +63,11 @@ export default function SpacePort() {
           return (
             <NftView
               key={token.token_id}
-              chain={token.chain}
+              chainName={token.chain}
               tokenId={token.token_id}
               image={token.image}
               name={token.name}
+              uri={token.token_uri}
             />
           )
         })}
