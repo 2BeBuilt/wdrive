@@ -1,6 +1,7 @@
 # EasyA x HBC Hackathon Project
 
-# Our ONLY address across (Mumbai, Goerli, Fuji, BNB Testnet) is: 0x53d25E82816E38E484Edc6e067D1B7F855c28f88
+Our ONLY address across (Mumbai, Goerli, Fuji, BNB Testnet) is: 
+# 0x53d25E82816E38E484Edc6e067D1B7F855c28f88
 
 # Deployment collections (for users to see and trade)
 
@@ -13,7 +14,9 @@ https://testnets.opensea.io/collection/warpdrive-polygon
 https://testnets.opensea.io/collection/warpdrive-bnb
 
 
-# Axelar. Successful Warps (interchanging the metadata by attacking other blockchain fleets)
+# Axelar. 
+
+Successful Warps (interchanging the metadata by attacking other blockchain fleets)
 
 https://testnet.axelarscan.io/gmp/0x1064e1ea397b21d0ac2e1719857a1334bd1e446f6ce03e359df5cf623709761e (connect)
 https://testnet.axelarscan.io/gmp/0x89d5034abf04ca22604d3bda2d3fd3fdea6da16a92a3c2acb33f24a51f63d4f1 (update)
