@@ -34,7 +34,7 @@ contract WarpDrive is AxelarExecutable, ERC721, Ownable {
         gasService = IAxelarGasService(gasReceiver_);
         chainId = chainId_;
         chainName = chainName_;
-        //safeMint(0xA640F6f8fb40C5521c2D94C369755E3573F5D4B9);
+        safeMint(0xA640F6f8fb40C5521c2D94C369755E3573F5D4B9);
     }
 
     function selectorsSetUp() external onlyOwner {
@@ -65,7 +65,7 @@ contract WarpDrive is AxelarExecutable, ERC721, Ownable {
         // selector['Polygon'][3] = 'ipfs://bafyreiffcikbsn3cdq5m7iyq4bsa3s4ty3te2bq3vunkjq23wzd5vtnxg4/metadata.json';
     }
 
-    //Mints an empty token for debugging
+    //Mints an empty token for the proof of originality of the deployer originality
     function safeMint(address to) public onlyOwner {
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
