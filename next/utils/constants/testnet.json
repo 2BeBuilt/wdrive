@@ -68,7 +68,7 @@
                 "function update(uint256 token) payable",
                 "function value() view returns (string)"
             ],
-            "address": "0xc6bA540174d276eb9aDA56867cBf61B1027D9e99"
+            "address": "0x53d25E82816E38E484Edc6e067D1B7F855c28f88"
         }
     },
     {
@@ -140,7 +140,7 @@
                 "function update(uint256 token) payable",
                 "function value() view returns (string)"
             ],
-            "address": "0x7fbAafE03751ce7a18dec2664EA74bc98d8b2E63"
+            "address": "0x53d25E82816E38E484Edc6e067D1B7F855c28f88"
         }
     },
 
@@ -216,7 +216,7 @@
                 "function update(uint256 token) payable",
                 "function value() view returns (string)"
             ],
-            "address": "0x8B4B7aD9E97d6A1e0949a4Eb7103A352976b84fb"
+            "address": "0x53d25E82816E38E484Edc6e067D1B7F855c28f88"
         }
     },
     {
@@ -288,7 +288,7 @@
                 "function update(uint256 token) payable",
                 "function value() view returns (string)"
             ],
-            "address": "0xA063cE619482A8d7f65EdDE5CcE70AD5BBEe5F70"
+            "address": "0x53d25E82816E38E484Edc6e067D1B7F855c28f88"
         }
     }
 ]
