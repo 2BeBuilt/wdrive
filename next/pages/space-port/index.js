@@ -1,11 +1,13 @@
 import NftView from '@/components/NFT/nftView'
+import PageHead from '@/components/Common/PageHead'
+import DefaultAlert from '@/components/Alert/DefaultAlert'
+import FlexCenter from '@/components/Common/FlexCenter'
 import axios from 'axios'
 
 import { SimpleGrid } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { useAccount, useNetwork } from 'wagmi'
 import { useToast } from '@chakra-ui/react'
-import PageHead from '@/components/Common/PageHead'
 
 export default function SpacePort() {
   const toast = useToast()
@@ -15,6 +17,7 @@ export default function SpacePort() {
 
   useEffect(() => {
     const fetchData = async () => {
+      clearData()
       chains.forEach((chain) => {
         axios
           .get(`/api/moralis/getNfts?chain=${chain.network}&address=${address}`)
@@ -59,7 +62,7 @@ export default function SpacePort() {
 
     isConnected && fetchData()
     isDisconnected && clearData()
-  }, [isConnected, isDisconnected])
+  }, [isConnected, isDisconnected, address])
 
   return (
     <>
@@ -84,6 +87,14 @@ export default function SpacePort() {
           )
         })}
       </SimpleGrid>
+      <FlexCenter>
+        <DefaultAlert
+          isOpen={tokens.length === 0}
+          status="warning"
+          title="Space Port is empty"
+          description="Build a ship first"
+        />
+      </FlexCenter>
     </>
   )
 }
