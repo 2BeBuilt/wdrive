@@ -1,4 +1,3 @@
-# warp-drive
 EasyA x HBC Hackathon Project
 
 # Introducing Warp Drive: A Multi-Chain War for Blockchain Supremacy
