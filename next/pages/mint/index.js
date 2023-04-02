@@ -50,6 +50,9 @@ export default function Mint() {
     abi: abi,
     functionName: 'safeWarp',
     args: [],
+    overrides: {
+      gasLimit: 200000,
+    },
   })
   const { data, write, error } = useContractWrite(config)
   const { isLoading, isSuccess, isError } = useWaitForTransaction({
