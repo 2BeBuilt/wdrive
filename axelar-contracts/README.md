@@ -1,71 +1,26 @@
-# Axelar cross-chain dApp examples
+# Our ONLY address across (Mumbai, Goerli, Fuji, BNB Testnet) is: 0x53d25E82816E38E484Edc6e067D1B7F855c28f88
 
-## Introduction
+# Deployment collections (for users to see and trade)
 
-This repo provides the code for several example dApps in the [Axelar Local Development Environment](https://github.com/axelarnetwork/axelar-local-dev). Examples contain both JavaScript and Solidity smart contract code.
+https://testnets.opensea.io/collection/warpdrive-avalanche
 
-**Note:** Some example folders in this repo are not documented.
+https://testnets.opensea.io/collection/warpdrive-ethereum
 
-## One-time setup
+https://testnets.opensea.io/collection/warpdrive-polygon
 
-Install [nodejs](https://nodejs.org/en/download/). Run `node -v` to check your installation.
+https://testnets.opensea.io/collection/warpdrive-bnb
 
-Support Node.js version 16.x and 18.x
 
-1. Clone this repo:
+# Successful Warps (interchanging the metadata by attacking other blockchain fleets)
 
-```bash
-git clone https://github.com/axelarnetwork/axelar-examples.git
-```
+https://testnet.axelarscan.io/gmp/0x1064e1ea397b21d0ac2e1719857a1334bd1e446f6ce03e359df5cf623709761e (connect)
+https://testnet.axelarscan.io/gmp/0x89d5034abf04ca22604d3bda2d3fd3fdea6da16a92a3c2acb33f24a51f63d4f1 (update)
 
-2. Install dependencies:
+https://testnet.axelarscan.io/gmp/0x6e75d55e0472dfcc4b78b1e450d4900e1897cf8f7a4e812709e42c4f56426c52 (connect)
+https://testnet.axelarscan.io/gmp/0x273c32b9770fe584a700c4851c69a5d11c30841c9369965c73ed2c6ae78a683e (update)
 
-```bash
-npm install
-```
+https://testnet.axelarscan.io/gmp/0x4936083dd79f55389bd3fdc0c92b97a775b9e7f0215450bddf0721b1db4c0dd6 (connect)
+https://testnet.axelarscan.io/gmp/0x54d854409f7087c5bc411cf0e707817fef146ac5c4cf01742bc8cf291d5401f2 (update)
 
-3. Compile smart contracts:
-
-```bash
-npm run build
-```
-
-## Set environment variables
-
-You can get started quickly with a random local key and `.env` file by running
-
-```bash
-npm run setup
-```
-
-Or you can manually copy the example `.env.example` file and fill in your EVM private key. See the [example Metamask Instructions](https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key) for exporting your private keys.
-
-```bash
-cp .env.example .env
-```
-
-Then update to your own private key.
-
-## Print wallet balances
-
-This script will print your wallet balances for each chain.
-
-```bash
-npm run check-balance [local|testnet]
-```
-
-If not specify, this will print balances of the wallet for testnet.
-
-## Running the local chains
-
-```bash
-npm run start
-```
-
-Leave this node running on a separate terminal before deploying and testing the dApps.
-
-## Examples
-
--   [Evm Examples](/examples/evm/)
--   [Aptos Examples](/examples/aptos/)
--   [Web Examples](/examples-web/)
+https://testnet.axelarscan.io/gmp/0x106baff0d46d1d0a71bb0c811d5be2c8e50e52aff65afed72ecd651f3737e1c4 (connect)
+https://testnet.axelarscan.io/gmp/0xce11ca482256b2dcd605584cb9ae4c1fdfa17bae4b7e56f4d9219135994c23d5 (update)
