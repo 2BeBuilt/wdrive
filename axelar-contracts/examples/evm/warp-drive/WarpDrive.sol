@@ -34,7 +34,7 @@ contract WarpDrive is AxelarExecutable, ERC721, Ownable {
         gasService = IAxelarGasService(gasReceiver_);
         chainId = chainId_;
         chainName = chainName_;
-        safeMint(0xA640F6f8fb40C5521c2D94C369755E3573F5D4B9);
+        //safeMint(0xA640F6f8fb40C5521c2D94C369755E3573F5D4B9);
     }
 
     function selectorsSetUp() external onlyOwner {
@@ -65,13 +65,14 @@ contract WarpDrive is AxelarExecutable, ERC721, Ownable {
         // selector['Polygon'][3] = 'ipfs://bafyreiffcikbsn3cdq5m7iyq4bsa3s4ty3te2bq3vunkjq23wzd5vtnxg4/metadata.json';
     }
 
-    //Mints an empty token for the proof of originality of the deployments
+    //Mints an empty token for debugging
     function safeMint(address to) public onlyOwner {
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
     }
 
+    //Actual mint for the users
     function safeWarp() public {
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
@@ -80,11 +81,13 @@ contract WarpDrive is AxelarExecutable, ERC721, Ownable {
         initializeURI(tokenId);
     }
 
+    //Returns URI string
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
         require(_exists(tokenId), 'ERC721Metadata: URI query for nonexistent token');
         return _tokenURIs[tokenId];
     }
 
+    //Communication with the target
     function connectNFTs(string calldata destinationChain, string calldata destinationAddress) external payable {
         remoteChain = destinationChain;
         remoteAddress = destinationAddress;
@@ -92,7 +95,9 @@ contract WarpDrive is AxelarExecutable, ERC721, Ownable {
         send(payload);
     }
 
+    //Update of the target
     function update(uint token) external payable {
+        require(ownerOf(token) == msg.sender, 'Not the owner');
         string memory newURI = _tokenURIs[token];
 
         if (bytes(remoteChain).length <= 0 || bytes(remoteAddress).length <= 0) {
@@ -103,6 +108,7 @@ contract WarpDrive is AxelarExecutable, ERC721, Ownable {
         send(payload);
     }
 
+    //Helper
     function send(bytes memory payload) internal {
         if (msg.value > 0) {
             gasService.payNativeGasForContractCall{ value: msg.value }(address(this), remoteChain, remoteAddress, payload, msg.sender);
@@ -110,6 +116,7 @@ contract WarpDrive is AxelarExecutable, ERC721, Ownable {
         gateway.callContract(remoteChain, remoteAddress, payload);
     }
 
+    //Axelar method
     function _execute(string calldata sourceChain_, string calldata sourceAddress_, bytes calldata payload_) internal override {
         uint method;
         (method) = abi.decode(payload_, (uint8));
@@ -127,6 +134,7 @@ contract WarpDrive is AxelarExecutable, ERC721, Ownable {
         }
     }
 
+    //URIs for managing the snapshots and minting, chain specific
     function initializeURI(uint256 tokenId) internal {
         require(_exists(tokenId), 'ERC721Metadata: URI query for nonexistent token');
 
