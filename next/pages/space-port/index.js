@@ -66,7 +66,8 @@ export default function SpacePort() {
       <PageHead title="Space Port" />
       <SimpleGrid
         columns={4}
-        spacing={6}
+        spacingX={6}
+        spacingY={0}
         marginLeft={20}
         marginRight={20}
         paddingBottom={20}
