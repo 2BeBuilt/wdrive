@@ -15,16 +15,32 @@ import PageHead from '@/components/Common/PageHead'
 export default function Mint() {
   const [shipLogo, setShipLogo] = useState(null)
   const [contract, setContract] = useState(null)
-  const { address, isConnected } = useAccount()
+  const { address, isConnected, isDisconnected } = useAccount()
   const { chain } = useNetwork()
   const toast = useToast()
 
   useEffect(() => {
-    const chainFound = chains.filter((c) => c.name === chain.network)[0]
-    setShipLogo(chainFound.ship)
-    setContract(chainFound.address)
-  }, [chain])
-  console.log(contract)
+    const readChain = () => {
+      const chainFound = chains.filter((c) => c.name === chain.network)[0]
+      setShipLogo(chainFound.ship)
+      setContract(chainFound.address)
+    }
+
+    isConnected && readChain()
+  }, [chain, isConnected])
+
+  useEffect(() => {
+    isDisconnected &&
+      toast({
+        title: 'Error',
+        description: 'Wallet is disconnected!',
+        position: 'top',
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      })
+  }, [isDisconnected])
+
   const {
     config,
     error: prepareError,
@@ -40,27 +56,29 @@ export default function Mint() {
     hash: data?.hash,
   })
 
-  if (error) {
-    toast({
-      title: 'Error',
-      description: 'Something went wrong',
-      position: 'top',
-      status: 'error',
-      duration: 9000,
-      isClosable: true,
-    })
-  }
+  useEffect(() => {
+    if (error) {
+      toast({
+        title: 'Error',
+        description: 'Something went wrong',
+        position: 'top',
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      })
+    }
 
-  if (data) {
-    toast({
-      title: 'Success',
-      description: data?.hash,
-      position: 'top',
-      status: 'success',
-      duration: 9000,
-      isClosable: true,
-    })
-  }
+    if (data) {
+      toast({
+        title: 'Success',
+        description: data?.hash,
+        position: 'top',
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
+    }
+  }, [data, error])
 
   return (
     <>

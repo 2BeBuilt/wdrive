@@ -4,9 +4,11 @@ import axios from 'axios'
 import { SimpleGrid } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { useAccount, useNetwork } from 'wagmi'
+import { useToast } from '@chakra-ui/react'
 import PageHead from '@/components/Common/PageHead'
 
 export default function SpacePort() {
+  const toast = useToast()
   const [tokens, setTokens] = useState([])
   const { address, isConnected, isDisconnected } = useAccount()
   const { chains } = useNetwork()
@@ -45,6 +47,16 @@ export default function SpacePort() {
       setTokens([])
     }
 
+    isDisconnected &&
+      toast({
+        title: 'Error',
+        description: 'Wallet is disconnected!',
+        position: 'top',
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      })
+
     isConnected && fetchData()
     isDisconnected && clearData()
   }, [isConnected, isDisconnected])
@@ -67,7 +79,6 @@ export default function SpacePort() {
               tokenId={token.token_id}
               image={token.image}
               name={token.name}
-              uri={token.token_uri}
             />
           )
         })}

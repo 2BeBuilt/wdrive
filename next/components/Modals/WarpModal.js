@@ -19,7 +19,7 @@ import abi from '@/utils/constants/abi.json'
 import chains from '@/utils/constants/testnet.json'
 import FlexCenter from '@/components/Common/FlexCenter'
 
-export default function WarpModal({ tokenId, newURI, isOpen, handleClose }) {
+export default function WarpModal({ tokenId, isOpen, handleClose }) {
   const OverlayOne = () => <ModalOverlay backdropFilter="blur(10px) " />
   const [overlay, setOverlay] = useState(<OverlayOne />)
 
@@ -55,7 +55,7 @@ export default function WarpModal({ tokenId, newURI, isOpen, handleClose }) {
       })
       await txOne.wait()
 
-      const txTwo = await contract.update(newURI, 0, {
+      const txTwo = await contract.update(tokenId, {
         value: fee,
       })
       toast({

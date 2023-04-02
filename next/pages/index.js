@@ -7,19 +7,22 @@ export default function Home() {
     <>
       <PageHead title="Warp Drive" />
       <main>
-        <Stack spacing={4} as={Container} maxW="4xl" textAlign="center">
+        <Stack
+          spacing={4}
+          as={Container}
+          maxW="4xl"
+          textAlign="center"
+          marginTop="10vh"
+        >
           <Heading>Warp Drive</Heading>
           <Text>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The point
-            of using Lorem Ipsum is that it has a more-or-less normal
-            distribution of letters, as opposed to using Content here, content
-            here, making it look like readable English. Many desktop publishing
-            packages and web page editors now use Lorem Ipsum as their default
-            model text, and a search for lorem ipsum will uncover many web sites
-            still in their infancy. Various versions have evolved over the
-            years, sometimes by accident, sometimes on purpose (injected humour
-            and the like).
+            In the 41st millennium, the once-unified XII Warp Fleet clashes in
+            an epic, cross-chain war spanning four blockchains. Unleash your
+            strategic prowess and lead your faction to victory in the relentless
+            struggle for blockchain supremacy. Experience the thrill of warfare
+            and the ingenuity of cutting-edge technology as you join the
+            greatest multi-chain battle of all time, inspired by Warhammer 40k
+            and empowered by the Axelar Network.
           </Text>
         </Stack>
       </main>
