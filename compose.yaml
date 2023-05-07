@@ -1,24 +1,24 @@
 version: '3.5'
 
 services:
-  nginx:
+  wdrive-nginx:
     container_name: nginx
     build: nginx
     restart: always
     ports:
-      - '81:81'
+      - '127.0.0.1:33:33'
     networks:
       - app
-  next:
+  wdrive-next:
     container_name: next
     build:
       context: next
     restart: always
     ports:
-      - "${NEXT_PORT}:${NEXT_PORT}"
+      - "127.0.0.1:${NEXT_PORT}:${NEXT_PORT}"
     networks:
       - app
-  express:
+  wdrive-express:
     container_name: express
     build: 
       context: express
@@ -26,7 +26,7 @@ services:
     networks:
       - app
     ports:
-      - '${EXPRESS_PORT}:${EXPRESS_PORT}'
+      - '127.0.0.1:${EXPRESS_PORT}:${EXPRESS_PORT}'
     environment:
       - 'EXPRESS_PORT=${EXPRESS_PORT}'
       - 'BASE_URL=${BASE_URL}'
