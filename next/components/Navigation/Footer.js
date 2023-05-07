@@ -9,8 +9,8 @@ export default function Footer() {
       color="gray.200"
       as="footer"
       position="fixed"
-      top="91vh"
-      width="100vw"
+      bottom="0"
+      width="100%"
       zIndex={10}
     >
       <Container
