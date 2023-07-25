@@ -10,9 +10,5 @@
     {
         "name": "bsc-testnet",
         "id": "0x61"
-    },
-    {
-        "name": "avalanche-fuji",
-        "id": "0xa86a"
     }
 ]
