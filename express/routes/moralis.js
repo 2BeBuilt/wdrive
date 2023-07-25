@@ -14,6 +14,7 @@ startMoralis()
 
 router.get('/getNfts', async (req, res, next) => {
   const chain = req.query.chain
+
   const chainId = chains.filter((c) => c.name === chain)[0].id
   const address = req.query.address
 

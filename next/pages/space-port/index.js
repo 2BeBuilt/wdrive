@@ -43,6 +43,7 @@ export default function SpacePort() {
               }
             })
           })
+          .then(() => new Promise((resolve) => setTimeout(resolve, 100)))
       })
     }
 
