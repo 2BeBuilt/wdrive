@@ -67,8 +67,18 @@ export default function SpacePort() {
   return (
     <>
       <PageHead title="Space Port" />
-      <Flex py={'52'} align={'center'} justify={'center'} w={'100%'}>
-        <SimpleGrid columns={4} spacingX={6} spacingY={0}>
+      <Flex
+        py={{ md: '72', base: '52' }}
+        align={'center'}
+        justify={'center'}
+        w={'100%'}
+      >
+        <SimpleGrid
+          columns={4}
+          spacingX={6}
+          spacingY={0}
+          display={tokens.length > 0 ? 'flex' : 'none'}
+        >
           {tokens.map((token) => {
             return (
               <NftView

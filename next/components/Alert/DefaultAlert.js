@@ -23,7 +23,7 @@ export default function DefaultAlert({ isOpen, status, title, description }) {
       width="80%"
       rounded="lg"
       maxW={'400'}
-      minW={'200'}
+      minW={'300'}
       alignItems={'center'}
       justifyContent={'center'}
       textAlign={'center'}

@@ -23,6 +23,7 @@ export default function LinkAlert({ isOpen, status, title, marginTop }) {
       width="80%"
       rounded="lg"
       maxW={'400'}
+      minW={'300'}
       alignItems={'center'}
       justifyContent={'center'}
       textAlign={'center'}
