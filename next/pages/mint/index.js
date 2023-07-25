@@ -88,7 +88,12 @@ export default function Mint() {
   return (
     <>
       <PageHead title="Build Ship" />
-      <Stack align={'center'} justify={'center'} py={'52'} spacing={'6'}>
+      <Stack
+        align={'center'}
+        justify={'center'}
+        py={{ md: '72', base: '52' }}
+        spacing={'6'}
+      >
         {isConnected && (
           <>
             <Tooltip label="Build Ship" placement="bottom">

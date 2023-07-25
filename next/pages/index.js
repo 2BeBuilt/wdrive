@@ -7,12 +7,11 @@ export default function Home() {
     <>
       <PageHead title="Warp Drive" />
       <Stack
+        py={{ md: '72', base: '40' }}
         spacing={4}
         as={Container}
         maxW="4xl"
         textAlign="center"
-        marginTop="10vh"
-        pb={'30vh'}
       >
         <Heading>Warp Drive</Heading>
         <Text>
