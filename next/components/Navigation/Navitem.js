@@ -8,7 +8,7 @@ export default function Navitem({ children, href, ...props }) {
       <Link href={href}>
         <Heading
           cursor="pointer"
-          fontSize="2xl"
+          fontSize={{ md: '2xl', base: 'lg' }}
           textTransform={'uppercase'}
           _hover={{ color: 'offWhite' }}
           _focus={{ color: 'offWhite' }}

@@ -6,6 +6,7 @@ import {
   CloseButton,
   Box,
   Flex,
+  Stack,
 } from '@chakra-ui/react'
 import { useState, useEffect } from 'react'
 
@@ -18,25 +19,27 @@ export default function DefaultAlert({ isOpen, status, title, description }) {
   return open ? (
     <Alert
       status={status}
-      variant="subtle"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      textAlign="center"
-      height="200px"
-      width="500px"
+      height="20%"
+      width="80%"
       rounded="lg"
+      maxW={'400'}
+      minW={'200'}
+      alignItems={'center'}
+      justifyContent={'center'}
+      textAlign={'center'}
     >
-      <Flex direction="column" alignItems="center" justifyContent="center">
-        <AlertIcon boxSize="40px" mr={0} />
+      <Stack
+        alignItems={'center'}
+        justifyContent={'center'}
+        textAlign={'center'}
+      >
+        <AlertIcon boxSize="40px" />
         <Box>
-          <AlertTitle mt={4} mb={1} fontSize="lg">
-            {title}
-          </AlertTitle>
-          <AlertDescription maxWidth="sm">{description}</AlertDescription>
+          <AlertTitle fontSize="lg">{title}</AlertTitle>
+          <AlertDescription>{description}</AlertDescription>
         </Box>
-        <CloseButton mt={4} onClick={() => setOpen((prev) => !prev)} />
-      </Flex>
+        <CloseButton onClick={() => setOpen((prev) => !prev)} />
+      </Stack>
     </Alert>
   ) : (
     <></>
