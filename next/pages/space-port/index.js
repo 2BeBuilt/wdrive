@@ -16,6 +16,17 @@ export default function SpacePort() {
   const { chains } = useNetwork()
 
   useEffect(() => {
+    toast({
+      title: 'Warning',
+      description: 'Avalanche Fuji network was deprecated by Moralis!',
+      position: 'top',
+      status: 'warning',
+      duration: 3000,
+      isClosable: true,
+    })
+  }, [])
+
+  useEffect(() => {
     const fetchData = async () => {
       clearData()
       chains.forEach((chain) => {
@@ -42,6 +53,9 @@ export default function SpacePort() {
                 })
               }
             })
+          })
+          .catch((error) => {
+            console.log(error)
           })
           .then(() => new Promise((resolve) => setTimeout(resolve, 100)))
       })
@@ -70,15 +84,16 @@ export default function SpacePort() {
       <PageHead title="Space Port" />
       <Flex
         py={{ md: '72', base: '52' }}
+        px={'4'}
         align={'center'}
         justify={'center'}
         w={'100%'}
       >
         <SimpleGrid
-          columns={4}
+          columns={{ md: 4, base: 1 }}
           spacingX={6}
           spacingY={0}
-          display={tokens.length > 0 ? 'flex' : 'none'}
+          display={tokens.length > 0 ? 'grid' : 'none'}
         >
           {tokens.map((token) => {
             return (
