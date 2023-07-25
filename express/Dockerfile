@@ -8,5 +8,4 @@ RUN npm install
 
 COPY . .
 
-EXPOSE $EXPRESS_PORT
 CMD [ "npm", "start" ]
