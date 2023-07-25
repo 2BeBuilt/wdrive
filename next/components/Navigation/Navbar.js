@@ -1,4 +1,4 @@
-import { SimpleGrid } from '@chakra-ui/react'
+import { HStack, SimpleGrid } from '@chakra-ui/react'
 import Logo from './Logo'
 import FlexCenter from '../Common/FlexCenter'
 import Navitem from './Navitem'
@@ -6,13 +6,14 @@ import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 export default function Navbar() {
   return (
-    <SimpleGrid
-      columns={4}
-      spacing={8}
-      pos="relative"
-      height="250px"
-      alignItems="center"
-      justifyContent="center"
+    <HStack
+      spacing={{ md: '56', base: '4' }}
+      px={4}
+      pos={'fixed'}
+      top={10}
+      w={'100%'}
+      align={'center'}
+      justify={'center'}
     >
       <Logo />
       <Navitem href="/mint">Build Ship</Navitem>
@@ -20,13 +21,13 @@ export default function Navbar() {
       <FlexCenter>
         <ConnectButton
           chainStatus="icon"
-          showBalance={true}
+          showBalance={false}
           accountStatus={{
             smallScreen: 'avatar',
             largeScreen: 'avatar',
           }}
         />
       </FlexCenter>
-    </SimpleGrid>
+    </HStack>
   )
 }

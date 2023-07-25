@@ -2,29 +2,36 @@ version: '3.5'
 
 services:
   wdrive-nginx:
-    container_name: nginx
-    build: nginx
+    image: nginx:latest
+    container_name: wdrive-nginx
     restart: always
     ports:
-      - '127.0.0.1:33:33'
+      - '127.0.0.1:${NGINX_PORT}:${NGINX_PORT}'
     networks:
-      - app
+      - nwk
+    volumes:
+      - ./nginx/:/etc/nginx/templates/
+    environment:
+      - NGINX_PORT=${NGINX_PORT}
+      - NEXT_PORT=${NEXT_PORT}
   wdrive-next:
-    container_name: next
+    container_name: wdrive-next
     build:
       context: next
     restart: always
     ports:
       - "127.0.0.1:${NEXT_PORT}:${NEXT_PORT}"
     networks:
-      - app
+      - nwk
+    environment:
+      - NEXT_PORT=${NEXT_PORT}
   wdrive-express:
-    container_name: express
+    container_name: wdrive-express
     build: 
       context: express
     restart: always
     networks:
-      - app
+      - nwk
     ports:
       - '127.0.0.1:${EXPRESS_PORT}:${EXPRESS_PORT}'
     environment:
@@ -33,5 +40,5 @@ services:
       - 'MORALIS_API_KEY=${MORALIS_API_KEY}'
 
 networks:
-  app:
+  nwk:
     driver: bridge

@@ -1,5 +1,13 @@
 import FlexCenter from '../Common/FlexCenter'
-import { Button, Container, Text, Stack, Image, Flex } from '@chakra-ui/react'
+import {
+  Button,
+  Container,
+  Text,
+  Stack,
+  Image,
+  Flex,
+  HStack,
+} from '@chakra-ui/react'
 import Link from 'next/link'
 
 export default function Footer() {
@@ -12,16 +20,11 @@ export default function Footer() {
       bottom="0"
       width="100%"
       zIndex={10}
+      align={'center'}
+      justify={'center'}
+      py={3}
     >
-      <Container
-        as={Stack}
-        maxW={'6xl'}
-        py={4}
-        direction={{ base: 'column', md: 'row' }}
-        spacing={4}
-        justify={{ base: 'center', md: 'space-between' }}
-        align={{ base: 'center', md: 'center' }}
-      >
+      <HStack spacing={6}>
         <Link href={'https://axelar.network/'} target="_blank">
           <FlexCenter>
             <Text>Powered by Axelar</Text>
@@ -34,16 +37,14 @@ export default function Footer() {
             />
           </FlexCenter>
         </Link>
-        <Stack direction={'row'} spacing={6}>
-          <Button
-            onClick={() => {
-              window.open('https://github.com/Canvinus/warp-drive', '_blank')
-            }}
-          >
-            Github
-          </Button>
-        </Stack>
-      </Container>
+        <Button
+          onClick={() => {
+            window.open('https://github.com/Canvinus/warp-drive', '_blank')
+          }}
+        >
+          Github
+        </Button>
+      </HStack>
     </Flex>
   )
 }

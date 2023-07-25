@@ -3,7 +3,7 @@ import {
   useContractWrite,
   useWaitForTransaction,
 } from 'wagmi'
-import { Tooltip, Image, Flex } from '@chakra-ui/react'
+import { Tooltip, Image, Flex, Stack } from '@chakra-ui/react'
 import { useToast } from '@chakra-ui/react'
 import { useNetwork, useAccount } from 'wagmi'
 import { useEffect, useState } from 'react'
@@ -88,7 +88,7 @@ export default function Mint() {
   return (
     <>
       <PageHead title="Build Ship" />
-      <FlexCenter direction="column" paddingBottom={20}>
+      <Stack align={'center'} justify={'center'} py={'52'} spacing={'6'}>
         {isConnected && (
           <>
             <Tooltip label="Build Ship" placement="bottom">
@@ -101,28 +101,18 @@ export default function Mint() {
                 src={shipLogo}
               />
             </Tooltip>
-            <Flex
-              direction="column"
-              justifyContent="center"
-              alignItems="center"
-              marginTop={4}
-            >
+            <Stack spacing={'10'} align={'center'} justify={'center'}>
               <DefaultAlert
                 isOpen={true}
                 title="Warning"
                 status="warning"
                 description="To mint, manually increase the gas limit to 200 000 gwei, even though it will use much less gas."
               />
-              <LinkAlert
-                isOpen={true}
-                title="Warning"
-                status="warning"
-                marginTop={4}
-              />
-            </Flex>
+              <LinkAlert isOpen={true} title="Warning" status="warning" />
+            </Stack>
           </>
         )}
-      </FlexCenter>
+      </Stack>
     </>
   )
 }

@@ -4,7 +4,7 @@ import DefaultAlert from '@/components/Alert/DefaultAlert'
 import FlexCenter from '@/components/Common/FlexCenter'
 import axios from 'axios'
 
-import { SimpleGrid } from '@chakra-ui/react'
+import { Center, Flex, SimpleGrid } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { useAccount, useNetwork } from 'wagmi'
 import { useToast } from '@chakra-ui/react'
@@ -67,34 +67,29 @@ export default function SpacePort() {
   return (
     <>
       <PageHead title="Space Port" />
-      <SimpleGrid
-        columns={4}
-        spacingX={6}
-        spacingY={0}
-        marginLeft={20}
-        marginRight={20}
-        paddingBottom={20}
-      >
-        {tokens.map((token) => {
-          return (
-            <NftView
-              key={token.token_id}
-              chainName={token.chain}
-              tokenId={token.token_id}
-              image={token.image}
-              name={token.name}
-            />
-          )
-        })}
-      </SimpleGrid>
-      <FlexCenter>
-        <DefaultAlert
-          isOpen={tokens.length === 0}
-          status="warning"
-          title="Space Port is empty"
-          description="Build a ship first"
-        />
-      </FlexCenter>
+      <Flex py={'52'} align={'center'} justify={'center'} w={'100%'}>
+        <SimpleGrid columns={4} spacingX={6} spacingY={0}>
+          {tokens.map((token) => {
+            return (
+              <NftView
+                key={token.token_id}
+                chainName={token.chain}
+                tokenId={token.token_id}
+                image={token.image}
+                name={token.name}
+              />
+            )
+          })}
+        </SimpleGrid>
+        <Flex>
+          <DefaultAlert
+            isOpen={tokens.length === 0}
+            status="warning"
+            title="Space Port is empty"
+            description="Build a ship first"
+          />
+        </Flex>
+      </Flex>
     </>
   )
 }
