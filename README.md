@@ -1,4 +1,5 @@
 # EasyA x HBC Hackathon Project
+## "🥇 1st Place" - Axelar
 
 https://wdrive.io/
 
