@@ -22,7 +22,8 @@ const { chains, provider } = configureChains(
 )
 
 const { connectors } = getDefaultWallets({
-  appName: 'TimePact',
+  appName: 'Warp Drive',
+  projectId: '6870c5ef8bc2e81efcd0f04c4b6dd332',
   chains,
 })
 
