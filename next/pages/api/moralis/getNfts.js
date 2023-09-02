@@ -1,6 +1,6 @@
 import Moralis from 'moralis'
-import chains from '../../utils/constants/api/chains.json'
-import addresses from '../../utils/constants/api/addresses.json'
+import chains from '@/utils/constants/api/chains.json'
+import addresses from '@/utils/constants/api/addresses.json'
 
 // Initialize Moralis
 Moralis.start({
