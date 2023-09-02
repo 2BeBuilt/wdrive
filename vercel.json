@@ -16,7 +16,11 @@
     "routes": [
       {
         "src": "/api/(.*)",
-        "dest": "express/bin/www"
+        "dest": "express/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "next/$1"
       }
     ]
   }
