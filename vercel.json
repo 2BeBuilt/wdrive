@@ -2,19 +2,11 @@
     "version": 2,
     "builds": [
       {
-        "src": "express/bin/www",
-        "use": "@vercel/node"
-      },
-      {
         "src": "next/package.json",
         "use": "@vercel/next"
       }
     ],
     "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "express/app.js"
-      },
       {
         "src": "/(.*)",
         "dest": "next/$1"
