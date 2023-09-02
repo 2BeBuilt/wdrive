@@ -2,14 +2,21 @@
     "version": 2,
     "builds": [
       {
+        "src": "express/package.json",
+        "use": "@vercel/node",
+        "config": {
+          "entrypoint": "npm run start"
+        }
+      },
+      {
         "src": "next/package.json",
         "use": "@vercel/next"
       }
     ],
     "routes": [
       {
-        "src": "/(.*)",
-        "dest": "next/$1"
+        "src": "/api/(.*)",
+        "dest": "express/bin/www"
       }
     ]
   }
