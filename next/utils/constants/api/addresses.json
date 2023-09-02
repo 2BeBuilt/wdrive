@@ -1,0 +1,17 @@
+[
+    {
+        "name": "goerli",
+        "chainId": "0x5",
+        "address": "0x53d25E82816E38E484Edc6e067D1B7F855c28f88"
+    },
+    {
+        "name": "polygon",
+        "chainId": "0x13881",
+        "address": "0x53d25E82816E38E484Edc6e067D1B7F855c28f88"
+    },
+    {
+        "name": "bsc",
+        "chainId": "0x61",
+        "address": "0x53d25E82816E38E484Edc6e067D1B7F855c28f88"
+    }
+]

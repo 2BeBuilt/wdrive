@@ -1,0 +1,14 @@
+[
+    {
+        "name": "goerli",
+        "id": "0x5"
+    },
+    {
+        "name": "maticmum",
+        "id": "0x13881"
+    },
+    {
+        "name": "bsc-testnet",
+        "id": "0x61"
+    }
+]
